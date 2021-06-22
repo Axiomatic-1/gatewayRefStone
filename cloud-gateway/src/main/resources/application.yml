@@ -16,15 +16,16 @@ spring:
               args:
                 name: USER-SERVICE
                 fallbackuri: forward:/userServiceFallBack
-        - id:   DEPARTMENT-SERVICE
-          uri: lb://DEPARTMENT-SERVICE
+        - id:   PROFILE-SERVICE
+          uri: lb://PROFILE-SERVICE
           predicates:
-            - Path=/departments/**
+            - Path=/**
           filters:
             - name: CircuitBreaker
               args:
-                name: DEPARTMENT-SERVICE
+                name: PROFILE-SERVICE
                 fallbackuri: forward:/departmentServiceFallBack
+
 
 
 
